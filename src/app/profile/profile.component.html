@@ -1,0 +1,22 @@
+<h3 style="text-align: center;">Add Blogs</h3>
+<div class="card" style="height: 500%; padding-bottom: 10%;">
+    <form class="container col s12" [formGroup]="blogForm" (ngSubmit)="onSubmit()" >
+        <div >
+            <div class="input-field">
+                <input type="text" id="title" name="title" formControlName="title" placeholder="Title">
+            </div>
+        </div>
+
+        <div>
+            <div class="input-field">
+                <h5>Tell Your Story:</h5>
+                <textarea id="body" name="description" formControlName="description"></textarea>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">submit</button>
+            <a href="/profile" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
