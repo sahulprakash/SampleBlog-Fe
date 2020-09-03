@@ -1,0 +1,94 @@
+<div class="container" style="padding-top: 30px;">
+  <div class="row">
+    <div *ngFor="let blog of blogs" class="card col-md-4 ">
+      <!-- <a (click)="toggleIcon(blog._id)"> <i class="fas fa-edit"></i></a> -->
+      <div class="card-body px-lg-5 pt-0">
+        <h5 class="card-title"> {{ blog.title }}</h5>
+        <p class="card-text">{{blog.description}}</p>
+
+        <button type="button" class="fas fa-trash-alt" data-toggle="modal" data-target="#deleteModel"
+          (click)="edit(blog)">
+          <!-- <a class="float-right"> </a> -->
+        </button>
+
+        <button type="button" class="fas fa-edit" data-toggle="modal" data-target="#exampleModal" (click)="edit(blog)">
+          <a class="float-right"> </a>
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Edit -->
+<div *ngIf="popup" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{selectedBlog.title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="blogForm" (ngSubmit)="onSubmit(selectedBlog._id)">
+          <div>
+            <div class="md-form">
+              <input type="text" id="title" name="title" formControlName="title">
+              <label for="title">Title</label>
+            </div>
+          </div>
+
+          <div>
+            <div class="md-form">
+              <label for="description">Your Blog</label>
+              <textarea class="md-textarea md-textarea-auto form-control" id="description" name="description"
+                formControlName="description"></textarea>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- delete -->
+<div *ngIf="popup" class="modal fade" id="deleteModel" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="fas fa-exclamation-triangle fa-7x " style="width: 100px;color: red;"></i>
+          <h4 class="modal-title">Are you sure?</h4>
+        </div>
+
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Do you really want to delete these records? This process cannot be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal"
+          (click)="delete(selectedBlog._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fixed-action-btn">
+  <a href="/profile">
+    <i class="fa fa-plus fa-7x" style="color: red;"></i></a>
+
+</div>
+<app-navbar></app-navbar>

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         this.regUser = JSON.stringify(res)
         localStorage.setItem('item', this.regUser)
         console.log("login", res)
-         this._router.navigate(['/profile'])
+         this._router.navigate(['/blogs'])
       }, err => {
         console.log("invalid credentials", err)
         this._router.navigate(['/login'])

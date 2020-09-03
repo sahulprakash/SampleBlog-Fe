@@ -1,22 +1,24 @@
-<h3 style="text-align: center;">Add Blogs</h3>
-<div class="card" style="height: 500%; padding-bottom: 10%;">
-    <form class="container col s12" [formGroup]="blogForm" (ngSubmit)="onSubmit()" >
-        <div >
-            <div class="input-field">
-                <input type="text" id="title" name="title" formControlName="title" placeholder="Title">
-            </div>
+<div class="card-block">
+    <div class="text-center">
+        <h3><i class="fa fa-envelope"></i> Add Your Blog</h3>
+    </div>
+    <form class="container" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+
+        <div class="md-form">
+            <input type="text" id="title" name="title" formControlName="title">
+            <label for="title">Blog Titile</label>
         </div>
 
-        <div>
-            <div class="input-field">
-                <h5>Tell Your Story:</h5>
-                <textarea id="body" name="description" formControlName="description"></textarea>
-            </div>
+        <div class="md-form">
+            <textarea id="body" name="description" formControlName="description"></textarea>
+            <label for="body">Blog Description</label>
         </div>
 
         <div class="text-center">
             <button type="submit" class="btn btn-primary">submit</button>
-            <a href="/profile" class="btn orange">Cancel</a>
         </div>
     </form>
+
 </div>
+
+<app-navbar></app-navbar>

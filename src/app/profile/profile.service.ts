@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,11 +26,29 @@ export class ProfileService {
     var datas: any = {};
     datas = addBlog;
     var data = JSON.stringify(datas);
-    console.log("datas",data)
+    console.log("datas", data)
     let options = this.initRequestOptions();
     return this.http.post<any>(`${this.baseUrl}/addblog`, data, {
       headers: options,
     });
+  }
+  getBlogsById(id): Observable<any> {
+    let options = this.initRequestOptions()
+    return this.http.get<any>(`${this.baseUrl}/listblog`, { headers: options })
+  }
+  updateBlog(id, newValue): Observable<any> {
+    var datas: any = {};
+    datas = newValue;
+    var data = JSON.stringify(datas);
+    console.log("datas", data)
+    let options = this.initRequestOptions()
+    return this.http.put<any>(`${this.baseUrl}/${id}`, data, { headers: options })
+  }
+
+  delete(id): Observable<any> {
+    console.log("gets id",id)
+    let options = this.initRequestOptions()
+    return this.http.delete<any>(`${this.baseUrl}/${id}`, { headers: options })
   }
 
 }

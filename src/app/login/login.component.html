@@ -1,36 +1,31 @@
+<div class="card container" style="width: 22rem; margin-top: 70px;">
+  <h5 class="card-header info-color white-text text-center py-8">
+    <strong>Sign in</strong>
+  </h5>
 
-<div class="card " style="margin-left: 400px;margin-right: 400px;">
-  <h2 class="text-center">LOGIN</h2>
-    <div>
-      <form class="container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="email">Email ID</label>
-          <input
-            type="text"
-            class="form-control"
-            id="email"
-            formControlName="email"
-            placeholder="EMAIL ID"
-          />
+  <div class="card-body px-lg-5 pt-0">
+    <form class="text-center" style="color: #757575;" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="md-form">
+        <input type="text" class="form-control" id="email" formControlName="email" />
+        <label for="email">E-mail</label>
+      </div>
+
+      <div class="md-form">
+        <input type="password" class="form-control" id="password" formControlName="password" />
+        <label for="password">Password</label>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <div>
+
+          <a href="">Forgot password?</a>
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            formControlName="password"
-            placeholder="password"
-          />
-        </div>
-        <div class="form-group text-center">
-          <button type="submit" class="btn btn-primary">submit</button>
-        </div>
-        <div class="form-group text-center">
-          <span>Don’t have an account yet? </span>
-          <a routerLink="/register">SignUp</a>
-        </div>
-      </form>
-    </div>
+      </div>
+
+      <button class="btn btn-outline-info btn-rounded" type="submit">Sign in</button>
+      <p>Not a member?
+        <a routerLink="/register">Register</a>
+      </p>
+    </form>
   </div>
-  
+</div>

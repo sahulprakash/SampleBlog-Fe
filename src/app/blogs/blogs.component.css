@@ -1,0 +1,18 @@
+.box {
+    padding: 0 5px 0 5px;
+}
+.box .inner {
+    background-color: #fff;
+}
+.btn-float{
+    float:left;
+margin-right: 10px;
+}
+.fixed-action-btn {
+    position: fixed;
+    /* right: 63px; */
+    bottom: 53px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 997;
+}
