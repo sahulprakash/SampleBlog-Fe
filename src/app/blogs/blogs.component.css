@@ -16,3 +16,12 @@ margin-right: 10px;
     margin-bottom: 0;
     z-index: 997;
 }
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.row{
+    flex: 1;
+}
